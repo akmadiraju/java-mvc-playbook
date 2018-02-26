@@ -1,0 +1,16 @@
+---
+- hosts: webserver
+  become: true
+
+  tasks: 
+    - name: Download Jdk8 rpm
+      unarchive:
+        src: "{{ item }}"
+        dest: /tmp
+        mode: 0755
+      with_items: 
+        - http://www-us.apache.org/dist/tomcat/tomcat-9/v9.0.4/bin/apache-tomcat-9.0.4.tar.gz
+        - http://download.oracle.com/otn-pub/java/jdk/8u161-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-8u161-linux-x64.rpm
+
+        
+        

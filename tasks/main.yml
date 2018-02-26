@@ -1,0 +1,10 @@
+---
+# tasks file for mvc_configuration
+- hosts: webserver
+  become: true
+  tasks:
+    - name: Install development tools
+      yum:
+        name: "@Development tools"
+        state: present 
+        update_cache: yes
